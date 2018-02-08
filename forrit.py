@@ -1,11 +1,5 @@
 from bottle import route, run, template, static_file, error
 import json, os
-data = []
-with open('bekkur.json', 'r', encoding='utf-8') as bekkur:
-    data = json.loads(bekkur.read())
-teljari = 0
-for x in data['nemendur']:
-    teljari += 1
 
 with open('bekkur.json', 'r', encoding='utf-8') as f:
     bekkur = json.load(f)
@@ -26,4 +20,4 @@ def server_static(filename):
 def error404(error):
     return "<h1>Þessi síða fannst ekki</h1>"
 
-run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+run()
